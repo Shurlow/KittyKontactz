@@ -2,6 +2,7 @@
 var express = require('express')
 var app = express()
 var fs = require('fs')
+// var $ = require('jQuery')
 
 // "DB"
 //
@@ -51,7 +52,12 @@ app.get('/template', function(req, res) {
  
 }) 
 
+var getForm = function{
 
+  $('catForm').sumbit
+
+
+};
 
 app.listen(3000)
 console.log('yo im on 3000')
