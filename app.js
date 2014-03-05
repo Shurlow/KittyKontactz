@@ -2,7 +2,20 @@
 var express = require('express')
 var app = express()
 var fs = require('fs')
-// var $ = require('jQuery')
+
+var html = fs.readFileSync('index.html').toString()
+
+app.use(express.bodyParser())
+
+app.get('/', function(req, res){
+  res.send(html);
+});
+
+app.post('/ya', function(req, res){
+  var cuteness = req.body
+  console.log(cuteness)
+  res.send("THAT'S A NICE LOOKIN CAT")
+});
 
 // "DB"
 //
