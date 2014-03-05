@@ -18,6 +18,13 @@ make a cat
 
 show all cats
 
+`/cuteness=x`
+
+show all cats that are x cute level
+
+`/colors=black:blue:tabby:magenta`
+
+show cats of colors Z:Z:Z
 
 
 
