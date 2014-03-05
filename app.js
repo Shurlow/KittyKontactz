@@ -11,7 +11,7 @@ app.get('/', function(req, res){
   res.send(html);
 });
 
-app.post('/ya', function(req, res){
+app.post('/newCat', function(req, res){
   var cuteness = req.body
   console.log(cuteness)
   res.send("THAT'S A NICE LOOKIN CAT")
@@ -30,14 +30,7 @@ app.post('/ya', function(req, res){
 // enable the use of templates like so
 app.set('view engine', 'hjs')
 
-app.get('/new', function(req, res) {
 
-    var newCat = 'im a cat';
-
-    res.render('input', newCat )
-
-
-})
 
 app.get('/all', function(req, res) {
 
