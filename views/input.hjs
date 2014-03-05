@@ -1,0 +1,8 @@
+<h1>Welcome to the new kitty page</h1>
+
+<h4>"Put yo cat in hur:"</h4>
+<input placeholder='name'  />
+<input placeholder='color'  />
+<input placeholder='cuteness'  />
+
+<button>done</button>

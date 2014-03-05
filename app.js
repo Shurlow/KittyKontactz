@@ -17,7 +17,12 @@ var fs = require('fs')
 app.set('view engine', 'hjs')
 
 app.get('/new', function(req, res) {
-  res.end('hi from new')
+
+    var newCat = 'im a cat';
+
+    res.render('input', newCat )
+
+
 })
 
 app.get('/all', function(req, res) {
@@ -26,6 +31,7 @@ app.get('/all', function(req, res) {
   // assign them to an object called all kittys
   // call res.render( templatename, kittys )
 
+
 })
 
 app.get('/template', function(req, res) {
@@ -33,7 +39,7 @@ app.get('/template', function(req, res) {
   var fake = { 
 
     katnamz: [
-       "karly",
+     , "karly"
      , "jaredia"
      , "breath"
      , "burpy"
@@ -46,10 +52,9 @@ app.get('/template', function(req, res) {
 }) 
 
 
+
 app.listen(3000)
 console.log('yo im on 3000')
-
-
 
 
 

@@ -1,6 +1,7 @@
 
 <h1> this is regular html </h1>
 
+<input placeholder="Put yo cat in hur:"  />
 
 {{#katnamz}}
   <h1> Im a cat! </h1>
