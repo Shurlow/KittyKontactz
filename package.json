@@ -1,0 +1,22 @@
+{
+  "name": "KittyKontactz",
+  "version": "0.0.0",
+  "description": "templating: http://twitter.github.io/hogan.js/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Shurlow/KittyKontactz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shurlow/KittyKontactz/issues"
+  },
+  "homepage": "https://github.com/Shurlow/KittyKontactz",
+  "dependencies": {
+    "express": "^4.0.0-rc2"
+  }
+}
