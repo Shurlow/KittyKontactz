@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/Shurlow/KittyKontactz",
   "dependencies": {
-    "express": "^4.0.0-rc2",
+    "express": "4.0.0-rc2",
     "hjs": "0.0.6"
   }
 }

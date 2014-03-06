@@ -5,14 +5,14 @@ var fs = require('fs')
 
 var html = fs.readFileSync('index.html').toString()
 
-app.use(express.bodyParser())
+app.use(express.bodyParser());  
 
 app.get('/', function(req, res){
   res.send(html);
 });
 
 app.post('/newCat', function(req, res){
-  var cuteness = req.body
+  var cuteness = req.body 
   console.log(cuteness)
   res.send("THAT'S A NICE LOOKIN CAT")
 });
@@ -29,8 +29,6 @@ app.post('/newCat', function(req, res){
 
 // enable the use of templates like so
 app.set('view engine', 'hjs')
-
-
 
 app.get('/all', function(req, res) {
 
@@ -57,13 +55,6 @@ app.get('/template', function(req, res) {
   res.render('index', fake)
  
 }) 
-
-var getForm = function{
-
-  $('catForm').sumbit
-
-
-};
 
 app.listen(3000)
 console.log('yo im on 3000')
