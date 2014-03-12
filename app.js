@@ -1,42 +1,42 @@
-
 var express = require('express')
 var app = express()
 var fs = require('fs')
 
 var html = fs.readFileSync('index.html').toString()
 
-app.use(express.bodyParser());  
+
+app.configure(function(){
+  app.set('view engine', 'hjs');
+  app.use(express.bodyParser());
+  app.use(app.router);
+  app.use(express.static(__dirname + '/public'));
+});
+
 
 app.get('/', function(req, res){
   res.send(html);
 });
 
-app.post('/newCat', function(req, res){
-  var cuteness = req.body 
-  console.log(cuteness)
-  res.send("THAT'S A NICE LOOKIN CAT")
+
+app.post('/file-upload', function(req, res) {
+    // get the temporary location of the file
+    var tmp_path = req.files.thumbnail.path;
+    // put files in kittybase
+    var target_path = './public/images/' + req.files.thumbnail.name;
+    // move the file from the temporary location to the intended location
+    fs.rename(tmp_path, target_path, function(err) {
+        if (err) throw err;
+        // delete the temporary file
+        fs.unlink(tmp_path, function() {
+            if (err) throw err;
+            res.send('File uploaded to: ' + target_path + ' - ' + req.files.thumbnail.size + ' bytes');
+        });
+    });
 });
 
-// "DB"
-//
-// to "read"
-// fs.readFile(....) JSON.parse 
-//
-// to "write"
-// fs.writeFile ()  JSON.stringfy
-//
-//
-
-// enable the use of templates like so
-app.set('view engine', 'hjs')
-
 app.get('/all', function(req, res) {
-
-  // get all cats from the "kittybase"
-  // assign them to an object called all kittys
-  // call res.render( templatename, kittys )
-
-
+var allCats = "hey";
+res.render('index', allCats);
 })
 
 app.get('/template', function(req, res) {
@@ -49,7 +49,6 @@ app.get('/template', function(req, res) {
      , "breath"
      , "burpy"
     ]
-
   }
 
   res.render('index', fake)
@@ -58,8 +57,3 @@ app.get('/template', function(req, res) {
 
 app.listen(3000)
 console.log('yo im on 3000')
-
-
-
-
-
