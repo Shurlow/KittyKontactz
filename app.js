@@ -14,7 +14,6 @@ app.use(express.static(__dirname + '/public'));
 
 
 var kittybase = require('./kittybase')
-console.log(kittybase)
 
 
 var html = fs.readFileSync('index.html').toString()
@@ -41,6 +40,8 @@ app.post('/file-upload', function(req, res) {
     if (err) throw err;
 
     // maybe save your cat here!
+
+    kittybase.save(req.body);
 
     // delete the temporary file
     fs.unlink(tmp_path, function() {
@@ -73,7 +74,7 @@ app.get('/template', function(req, res) {
   var fake = { 
 
     katnamz: [
-     , "karly"
+     , name: "karly"
      , "jaredia"
      , "breath"
      , "burpy"
@@ -86,3 +87,5 @@ app.get('/template', function(req, res) {
 
 app.listen(3000)
 console.log('yo im on 3000')
+
+

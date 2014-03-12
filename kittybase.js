@@ -4,54 +4,32 @@
 
 exports.save = save
 
-function save(obj) {
+var fs = require('fs')
+var db_dir = './public/catz.json'
 
-  // open file
-  // parse it
-  // add obj to other kitties
-  // stringify it 
-  // finally, save it back
-  // return true or false
-
+function getCatz() {
+  var db = fs.readFileSync(db_dir).toString();
+  console.log(db);
+  if (db) {
+   return JSON.parse(db);
+  }
 }
 
-// fre
 
-function getCatByName(name) {
-
-  // open file
-  // parse it
-  // save file output to a variable
-  // e.g. cats = {...}
-
-  /*
-
-  var cutekats = []
-
-  kitties.forEach(function(kat) {
-
-    console.log(kat)
-    if (kat.cuteness >= 3) cutekats.push(kat)
-
-    if (kat.name.indexOf('searchparam') > -1) do xyz
-
-  })
-
-  return cutekats
-
-  for each cat in kitties, 
-  return cat if cat.name === name
-  */
-
+function save(obj) {  
+  var cats = getCatz()
+  cats.push(obj)
+  var catString = JSON.stringify(cats)
+  fs.writeFileSync(db_dir, catString)
 }
 
-var o = {
-  cat: "kitty katkky"
-}
+save({ thing: "thing" })
 
-var str = JSON.stringify(o)
+// openParse()
 
-console.log(str)
+
+
+
 
 
 
